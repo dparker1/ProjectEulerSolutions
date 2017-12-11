@@ -1,1 +1,1 @@
-"# ProjectEulerSOlutions" 
+#ProjectEulerSolutions

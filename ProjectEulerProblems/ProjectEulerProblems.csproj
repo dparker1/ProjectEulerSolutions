@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7C484C1-0ABE-4436-ADB9-7C0077A102BF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectEulerProblems</RootNamespace>
+    <AssemblyName>ProjectEulerProblems</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EulerUtilities.cs" />
+    <Compile Include="Mathematics\Rational.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem001.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem002.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem003.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem004.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem005.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem006.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem007.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem008.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem009.cs" />
+    <Compile Include="Problems001_100\Problems001_010\Problem010.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem011.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem012.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem013.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem014.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem015.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem016.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem017.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem018.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem019.cs" />
+    <Compile Include="Problems001_100\Problems011_020\Problem020.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem021.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem022.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem023.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem024.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem025.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem026.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem027.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem028.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem029.cs" />
+    <Compile Include="Problems001_100\Problems021_030\Problem030.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem031.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem032.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem033.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem034.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem035.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem036.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem037.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem038.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem039.cs" />
+    <Compile Include="Problems001_100\Problems031_040\Problem040.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem041.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem042.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem043.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem044.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem045.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem046.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem047.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem048.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem049.cs" />
+    <Compile Include="Problems001_100\Problems041_050\Problem050.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem051.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem052.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem053.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem055.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem056.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem057.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem058.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem059.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem060.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem061.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem062.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem063.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem065.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem066.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem067.cs" />
+    <Compile Include="Problems001_100\Problems071_080\Problem074.cs" />
+    <Compile Include="Problems001_100\Problems071_080\Problem076.cs" />
+    <Compile Include="Problems001_100\Problems071_080\Problem077.cs" />
+    <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
+    <Compile Include="Problems001_100\Problems091_100\Problem098.cs" />
+    <Compile Include="Solution.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="txt\Problem013Text.txt" />
+    <Content Include="txt\Problem018Text.txt" />
+    <Content Include="txt\Problem022Text.txt" />
+    <Content Include="txt\Problem042Text.txt" />
+    <Content Include="txt\Problem067Text.txt" />
+    <Content Include="txt\Problem098Text.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>call "$(DevEnvDir)..\..\vc\vcvarsall.bat" x86
+"$(DevEnvDir)..\..\vc\bin\EditBin.exe" "$(TargetPath)"  /LARGEADDRESSAWARE</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

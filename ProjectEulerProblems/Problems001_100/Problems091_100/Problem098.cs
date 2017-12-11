@@ -9,7 +9,7 @@ namespace ProjectEulerProblems
 {
     public class Problem098
     {
-        public static int Solve()
+        public static long Solve()
         {
             string text = File.ReadAllText(@"..\..\txt\Problem098Text.txt");
             string[] words = text.Split(',');
@@ -18,7 +18,8 @@ namespace ProjectEulerProblems
                 words[i] = words[i].Replace("\"", "");
             }
 
-            string[] sortedWords = words;
+            string[] sortedWords = new string[words.Length];
+            Array.Copy(words, sortedWords, words.Length);
             for(int i = 0; i < sortedWords.Length; i++)
             {
                 char[] sort = sortedWords[i].ToArray();
@@ -35,12 +36,12 @@ namespace ProjectEulerProblems
                 set[sortedWords[i]].Add(words[i]);
             }
             List<long> squares = new List<long>();
-            for(int i = 1; i < 1000000; i++)
+            for(int i = 1; i < 10000; i++)
             {
                 squares.Add((long) Math.Pow(i, 2));
             }
 
-            int maxSquare = 0;
+            long maxSquare = 0;
             foreach(string key in set.Keys.Where(x=>set[x].Count == 2))
             {
                 var tempSquares = squares.Where(x => x.ToString().Length == key.Length).Reverse();
@@ -51,11 +52,33 @@ namespace ProjectEulerProblems
                     Dictionary<char, int> mapping = new Dictionary<char, int>();
                     for(int i = 0; i < word1.Length; i++)
                     {
+                        if(!mapping.ContainsKey(word1[i]))
+                        {
+                            mapping.Add(word1[i], square.ToString()[i] - 48);
+                        }
                         
+                    }
+                    if(mapping.Keys.Count != word1.Length)
+                    {
+                        break;
+                    }
+                    if(mapping.Values.Distinct().Count() != mapping.Values.Count)
+                    {
+                        continue;
+                    }
+                    string newSquare = "";
+                    for(int i = 0; i < word2.Length; i++)
+                    {
+                        newSquare += mapping[word2[i]];
+                    }
+                    long n = long.Parse(newSquare);
+                    if(n > maxSquare && tempSquares.Contains(n))
+                    {
+                        maxSquare = n;
                     }
                 }
             }
-            return 0;
+            return maxSquare;
         }
     }
 }

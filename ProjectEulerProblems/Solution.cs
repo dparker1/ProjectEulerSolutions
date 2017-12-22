@@ -10,7 +10,7 @@ namespace ProjectEulerProblems
         public static void Main(String[] args)
         {
             DateTime startTime = DateTime.Now;
-            Console.WriteLine(Problem098.Solve());
+            Console.WriteLine(Problem145.Solve());
             TimeSpan timeElapsed = DateTime.Now - startTime;
             Console.WriteLine("Time: " + timeElapsed.Milliseconds + " ms");
             Console.Read();

@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Card.cs" />
     <Compile Include="EulerUtilities.cs" />
     <Compile Include="Mathematics\Rational.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem001.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Problems001_100\Problems051_060\Problem051.cs" />
     <Compile Include="Problems001_100\Problems051_060\Problem052.cs" />
     <Compile Include="Problems001_100\Problems051_060\Problem053.cs" />
+    <Compile Include="Problems001_100\Problems051_060\Problem054.cs" />
     <Compile Include="Problems001_100\Problems051_060\Problem055.cs" />
     <Compile Include="Problems001_100\Problems051_060\Problem056.cs" />
     <Compile Include="Problems001_100\Problems051_060\Problem057.cs" />
@@ -133,6 +135,7 @@
     <Content Include="txt\Problem018Text.txt" />
     <Content Include="txt\Problem022Text.txt" />
     <Content Include="txt\Problem042Text.txt" />
+    <Content Include="txt\Problem054Text.txt" />
     <Content Include="txt\Problem067Text.txt" />
     <Content Include="txt\Problem098Text.txt" />
   </ItemGroup>

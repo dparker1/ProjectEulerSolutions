@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Linq;
@@ -9,10 +10,9 @@ namespace ProjectEulerProblems
     {
         public static void Main(String[] args)
         {
-            DateTime startTime = DateTime.Now;
-            Console.WriteLine(Problem125.Solve());
-            TimeSpan timeElapsed = DateTime.Now - startTime;
-            Console.WriteLine("Time: " + timeElapsed.Milliseconds + " ms");
+            Stopwatch timer = Stopwatch.StartNew();
+            Console.WriteLine(Problem054.Solve());
+            Console.WriteLine("Time: " + timer.ElapsedMilliseconds + " ms");
             Console.Read();
         }
     } 

@@ -117,6 +117,9 @@
     <Compile Include="Problems001_100\Problems061_070\Problem065.cs" />
     <Compile Include="Problems001_100\Problems061_070\Problem066.cs" />
     <Compile Include="Problems001_100\Problems061_070\Problem067.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem068.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem069.cs" />
+    <Compile Include="Problems001_100\Problems061_070\Problem070.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem074.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem076.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem077.cs" />

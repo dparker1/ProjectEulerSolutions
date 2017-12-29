@@ -8,7 +8,7 @@ using System.Numerics;
 
 namespace ProjectEulerProblems
 {
-    public class EulerUtilities
+    public static class EulerUtilities
     {
         public static List<long> Primes;
         public static int processors= Environment.ProcessorCount;
@@ -221,6 +221,18 @@ namespace ProjectEulerProblems
             return result;
         }
 
+        public static List<List<T>> Permute<T>(List<T> list)
+        {
+            List<List<T>> result = new List<List<T>>();
+            if(list.Count == 0)
+            {
+                return null;
+            }
+
+            Permute(list, new List<T>(), result);
+            return result;
+        }  
+
         public static List<string> Circulate(string s)
         {
             string[] result = new string[s.Length];
@@ -246,6 +258,31 @@ namespace ProjectEulerProblems
             {
                 Permute(remaining.Substring(0, i) + remaining.Substring(i + 1), current + remaining[i], temp);
             }
+        }
+
+        private static void Permute<T>(List<T> remaining, List<T> current, List<List<T>> temp)
+        {
+            if(remaining.Count == 0)
+            {
+                temp.Add(current);
+                return;
+            }
+            int remainingLength = remaining.Count;
+            for(int i = 0; i < remainingLength; i++)
+            {
+                List<T> newRemaining = new List<T>(remaining);
+                List<T> newCurrent = new List<T>(current);
+                newCurrent.Add(remaining[i]);
+                newRemaining.RemoveAt(i);
+                Permute(newRemaining, newCurrent, temp);
+            }
+        }
+
+        public static IEnumerable<IEnumerable<T>> Combinations<T>(this IEnumerable<T> elements, int k)
+        {
+            return k == 0 ? new[] { new T[0] } :
+              elements.SelectMany((e, i) =>
+                elements.Skip(i + 1).Combinations(k - 1).Select(c => (new[] { e }).Concat(c)));
         }
 
         public static int GreatestCommonDivisor(int a, int b)
@@ -326,6 +363,39 @@ namespace ProjectEulerProblems
                 }
             }
             return result;
+        }
+
+        public static List<int> Totient(int n)
+        {
+            List<int> result = Enumerable.Range(1, n).ToList();
+            for(int i = 2; i <= n; i++)
+            {
+                if(n % i == 0)
+                {
+                    result.RemoveAll(x => ((x % i) == 0));
+                }
+            }
+            return result;
+        }
+
+        public static bool IsPermutation(string s1, string s2)
+        {
+            if(s1.Length != s2.Length)
+            {
+                return false;
+            }
+            char[] c1 = s1.ToCharArray(), c2 = s2.ToCharArray();
+            Array.Sort(c1);
+            Array.Sort(c2);
+            for(int i = 0; i < c1.Length; i++)
+            {
+                if(c1[i] != c2[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+
         }
 
     }

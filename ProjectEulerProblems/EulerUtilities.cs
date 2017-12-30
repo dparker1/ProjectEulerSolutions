@@ -13,9 +13,9 @@ namespace ProjectEulerProblems
         public static List<long> Primes;
         public static int processors= Environment.ProcessorCount;
 
-        public static void LoadPrimes()
+        public static void LoadPrimes(int max)
         {
-            Primes = GeneratePrimes(int.MaxValue / 10);
+            Primes = GeneratePrimes(max);
         }
 
         public static int SumRange(int low, int high)
@@ -360,6 +360,11 @@ namespace ProjectEulerProblems
                     result.Add(Primes[i]);
                     n /= Primes[i];
                     i = -1;
+                }
+                if(Primes.Contains(n))
+                {
+                    result.Add(n);
+                    return result;
                 }
             }
             return result;

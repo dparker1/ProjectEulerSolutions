@@ -10,7 +10,7 @@ namespace ProjectEulerProblems
     {
         public static int Solve()
         {
-            EulerUtilities.LoadPrimes();
+            EulerUtilities.LoadPrimes(int.MaxValue / 10);
             HashSet<long> uniques;
             int streak = 0, answer = 0;
             for(int i = 646; i < int.MaxValue; i++)

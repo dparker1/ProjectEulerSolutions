@@ -50,7 +50,9 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="EulerUtilities.cs" />
+    <Compile Include="Mathematics\BigRational.cs" />
     <Compile Include="Mathematics\Rational.cs" />
+    <Compile Include="Mathematics\Tools.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem001.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem002.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem003.cs" />
@@ -120,11 +122,13 @@
     <Compile Include="Problems001_100\Problems061_070\Problem068.cs" />
     <Compile Include="Problems001_100\Problems061_070\Problem069.cs" />
     <Compile Include="Problems001_100\Problems061_070\Problem070.cs" />
+    <Compile Include="Problems001_100\Problems071_080\Problem071.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem074.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem076.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem077.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem098.cs" />
+    <Compile Include="Problems001_100\Problems091_100\Problem100.cs" />
     <Compile Include="Problems101_200\Problems121_130\Problem125.cs" />
     <Compile Include="Problems101_200\Problems141_150\Problem145.cs" />
     <Compile Include="Solution.cs" />

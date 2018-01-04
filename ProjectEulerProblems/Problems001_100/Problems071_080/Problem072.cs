@@ -12,7 +12,6 @@ namespace ProjectEulerProblems
         {
             long count = 0;
             List<int> nums = Enumerable.Range(0, 1000001).ToList();
-            Console.WriteLine(nums.Count);
             for(int i = 2; i < nums.Count; i++)
             {
                 if(i == nums[i])

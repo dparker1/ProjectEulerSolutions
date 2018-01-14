@@ -403,5 +403,21 @@ namespace ProjectEulerProblems
 
         }
 
+        public static void Shuffle<T>(T[] array)
+        {
+            Random r = new Random();
+            for(int i = 0; i < array.Length; i++)
+            {
+                Swap(array, i, r.Next(array.Length));
+            }
+        }
+
+        public static void Swap<T>(T[] array, int i1, int i2)
+        {
+            T temp = array[i1];
+            array[i1] = array[i2];
+            array[i2] = temp;
+        }
+
     }
 }

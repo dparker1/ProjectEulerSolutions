@@ -35,7 +35,7 @@ namespace ProjectEulerProblems
             List<Node> nonIn = new List<Node>();
             foreach(Node n in nodes)
             {
-                if(n.ins.Count == 0)
+                if(n.ins.Count == 0 && n.outs.Count > 0)
                 {
                     nonIn.Add(n);
                 }
@@ -56,8 +56,6 @@ namespace ProjectEulerProblems
                     }
                 }
             }
-            result.RemoveAt(0);
-            result.RemoveAt(0);
 
             return String.Concat(result);
         }

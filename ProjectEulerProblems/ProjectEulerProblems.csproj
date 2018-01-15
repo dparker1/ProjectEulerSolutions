@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectEulerProblems</RootNamespace>
     <AssemblyName>ProjectEulerProblems</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -128,6 +128,7 @@
     <Compile Include="Problems001_100\Problems071_080\Problem074.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem076.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem077.cs" />
+    <Compile Include="Problems001_100\Problems071_080\Problem079.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem084.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem095.cs" />
@@ -149,6 +150,7 @@
     <Content Include="txt\Problem042Text.txt" />
     <Content Include="txt\Problem054Text.txt" />
     <Content Include="txt\Problem067Text.txt" />
+    <Content Include="txt\Problem079Text.txt" />
     <Content Include="txt\Problem098Text.txt" />
     <Content Include="txt\Problem099Text.txt" />
   </ItemGroup>

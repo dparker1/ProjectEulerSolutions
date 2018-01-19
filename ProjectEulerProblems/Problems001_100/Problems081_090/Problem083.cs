@@ -8,12 +8,12 @@ using System.IO;
 
 namespace ProjectEulerProblems
 {
-    public class Problem081
+    public class Problem083
     {
         public static double Solve()
         {
             Graph graph = new Graph();
-            string[] text = File.ReadAllLines(@"..\..\txt\Problem081Text.txt");
+            string[] text = File.ReadAllLines(@"..\..\txt\Problem083Text.txt");
             int[][] array = new int[text.Length][];
             string[][] names = new string[text.Length][];
             for(int i = 0; i < text.Length; i++)
@@ -32,6 +32,14 @@ namespace ProjectEulerProblems
             {
                 for(int j = 0; j < 80; j++)
                 {
+                    if(i != 0)
+                    {
+                        graph.AddEdge(names[i][j], names[i - 1][j], array[i - 1][j]);
+                    }
+                    if(j != 0)
+                    {
+                        graph.AddEdge(names[i][j], names[i][j - 1], array[i][j - 1]);
+                    }
                     if(i != 79)
                     {
                         graph.AddEdge(names[i][j], names[i + 1][j], array[i + 1][j]);
@@ -42,6 +50,7 @@ namespace ProjectEulerProblems
                     }
                 }
             }
+
             graph.DoDijkstra(names[0][0]);
             return graph.GetVertex(names[79][79]).distance + array[0][0];
         }

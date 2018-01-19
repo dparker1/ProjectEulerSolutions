@@ -130,6 +130,7 @@
     <Compile Include="Problems001_100\Problems071_080\Problem079.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem081.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem082.cs" />
+    <Compile Include="Problems001_100\Problems081_090\Problem083.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem084.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem089.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
@@ -156,6 +157,7 @@
     <Content Include="txt\Problem079Text.txt" />
     <Content Include="txt\Problem081Text.txt" />
     <Content Include="txt\Problem082Text.txt" />
+    <Content Include="txt\Problem083Text.txt" />
     <Content Include="txt\Problem089Text.txt" />
     <Content Include="txt\Problem098Text.txt" />
     <Content Include="txt\Problem099Text.txt" />

@@ -40,6 +40,11 @@ namespace ProjectEulerProblems.Structures
             sourceVertex.AddEdge(newEdge);
         }
 
+        public Vertex GetVertex(string name)
+        {
+            return vertexNames[name];
+        }
+
         public void DoDijkstra(string start)
         {
             Vertex startVertex = vertexNames[start];
@@ -73,6 +78,16 @@ namespace ProjectEulerProblems.Structures
                         }
                     }
                 }
+            }
+        }
+
+        public void Reset()
+        {
+            foreach(Vertex v in vertexNames.Values)
+            {
+                v.distance = double.PositiveInfinity;
+                v.known = false;
+                v.prev = null;
             }
         }
 

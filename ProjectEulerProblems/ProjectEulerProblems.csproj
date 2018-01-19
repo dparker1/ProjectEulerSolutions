@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="EulerUtilities.cs" />
-    <Compile Include="Mathematics\BigRational.cs" />
     <Compile Include="Mathematics\Rational.cs" />
     <Compile Include="Mathematics\Tools.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem001.cs" />
@@ -129,6 +128,7 @@
     <Compile Include="Problems001_100\Problems071_080\Problem076.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem077.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem079.cs" />
+    <Compile Include="Problems001_100\Problems081_090\Problem081.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem084.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem089.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
@@ -140,6 +140,7 @@
     <Compile Include="Problems101_200\Problems141_150\Problem145.cs" />
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structures\Graph.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -152,6 +153,7 @@
     <Content Include="txt\Problem054Text.txt" />
     <Content Include="txt\Problem067Text.txt" />
     <Content Include="txt\Problem079Text.txt" />
+    <Content Include="txt\Problem081Text.txt" />
     <Content Include="txt\Problem089Text.txt" />
     <Content Include="txt\Problem098Text.txt" />
     <Content Include="txt\Problem099Text.txt" />

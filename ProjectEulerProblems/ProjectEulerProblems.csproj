@@ -37,6 +37,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BigDecimal-v1.0.0.0, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\BigDecimal.1.0.0\BigDecimal-v1.0.0.0.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -50,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Card.cs" />
     <Compile Include="EulerUtilities.cs" />
+    <Compile Include="Mathematics\BigDecimal.cs" />
     <Compile Include="Mathematics\Rational.cs" />
     <Compile Include="Mathematics\Tools.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem001.cs" />
@@ -128,6 +133,7 @@
     <Compile Include="Problems001_100\Problems071_080\Problem076.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem077.cs" />
     <Compile Include="Problems001_100\Problems071_080\Problem079.cs" />
+    <Compile Include="Problems001_100\Problems071_080\Problem080.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem081.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem082.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem083.cs" />

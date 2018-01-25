@@ -61,14 +61,15 @@ namespace ProjectEulerProblems.Mathematics
             BigInteger leftVal = left.Value, rightVal = right.Value, division;
             while(result.Precision < result.MaxPrecision && leftVal != ZERO)
             {
-                while(leftVal < rightVal)
+                if(leftVal < rightVal)
                 {
                     leftVal *= TEN;
+                    result.Precision++;
                 }
                 division = leftVal / rightVal;
                 result.Value = (result.Value * TEN) + division;
                 leftVal -= division * rightVal;
-                result.Precision++;
+                
             }
             result.Clean();
             return result;

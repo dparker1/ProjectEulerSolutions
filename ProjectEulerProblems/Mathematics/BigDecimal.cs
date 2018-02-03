@@ -17,7 +17,7 @@ namespace ProjectEulerProblems.Mathematics
 
         public BigDecimal(BigInteger v) : this(v, 0, int.MaxValue) { }
 
-        public BigDecimal(BigInteger v, int precision) : this(v, precision, int.MaxValue) { }
+        public BigDecimal(BigInteger v, int precision) : this(v, precision, 25) { }
 
         public BigDecimal(BigInteger v, int precision, int maxPrecision)
         {
@@ -26,7 +26,7 @@ namespace ProjectEulerProblems.Mathematics
             MaxPrecision = maxPrecision;
         }
 
-        public BigDecimal(int v) : this(new BigInteger(v), 0, int.MaxValue) { }
+        public BigDecimal(int v) : this(new BigInteger(v), 0, 25) { }
 
         public BigDecimal(int v, int precision) : this(new BigInteger(v), precision, int.MaxValue) { }
 
@@ -139,7 +139,7 @@ namespace ProjectEulerProblems.Mathematics
 
         public void Clean()
         {
-            while(Precision > 0 && Value.ToString().EndsWith("0"))
+            while(Precision > 0 && Value % TEN == 0)
             {
                 Value /= TEN;
                 Precision--;
@@ -178,7 +178,7 @@ namespace ProjectEulerProblems.Mathematics
             {
                 while(precisionDifference > 0)
                 {
-                    otherV *= 10;
+                    otherV *= TEN;
                     precisionDifference--;
                 }
             }
@@ -186,7 +186,7 @@ namespace ProjectEulerProblems.Mathematics
             {
                 while(precisionDifference < 0)
                 {
-                    thisV *= 10;
+                    thisV *= TEN;
                     precisionDifference++;
                 }
             }

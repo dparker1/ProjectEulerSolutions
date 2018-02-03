@@ -419,5 +419,28 @@ namespace ProjectEulerProblems
             array[i2] = temp;
         }
 
+        public static T[][] DeepCopy<T>(T[][] array)
+        {
+            T[][] copied = new T[array.Length][];
+            for(int r = 0; r < copied.Length; r++)
+            {
+                copied[r] = new T[array[r].Length];
+                for(int c = 0; c < copied[r].Length; c++)
+                {
+                    var copy = array[r][c] as ICloneable;
+                    if(copy == null)
+                    {
+                        copied[r][c] = array[r][c];
+                    }
+                    else
+                    {
+                        copied[r][c] = (T)copy.Clone();
+                    }
+                    
+                }
+            }
+            return copied;
+        }
+
     }
 }

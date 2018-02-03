@@ -141,6 +141,7 @@
     <Compile Include="Problems001_100\Problems081_090\Problem089.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem095.cs" />
+    <Compile Include="Problems001_100\Problems091_100\Problem096.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem098.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem099.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem100.cs" />
@@ -167,6 +168,7 @@
     <Content Include="txt\Problem082Text.txt" />
     <Content Include="txt\Problem083Text.txt" />
     <Content Include="txt\Problem089Text.txt" />
+    <Content Include="txt\Problem096Text.txt" />
     <Content Include="txt\Problem098Text.txt" />
     <Content Include="txt\Problem099Text.txt" />
   </ItemGroup>

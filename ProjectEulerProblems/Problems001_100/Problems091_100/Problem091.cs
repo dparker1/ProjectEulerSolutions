@@ -41,11 +41,11 @@ namespace ProjectEulerProblems
             }
             if(x1 == x2 && y1 < y2)
             {
-                return DistanceSquared(dX, dY) + DistanceSquared(x1, y1) == DistanceSquared(x2, y2);
+                return dY * dY + x1 * x1 == DistanceSquared(x2, y2);
             }
             if(x1 > x2 && y1 == y2)
             {
-                return DistanceSquared(dX, dY) + DistanceSquared(x2, y2) == DistanceSquared(x1, y1);
+                return dX * dX + y1 * y1 == DistanceSquared(x1, y1);
             }
             if(x2 < x1 && y2 > y1)
             {   

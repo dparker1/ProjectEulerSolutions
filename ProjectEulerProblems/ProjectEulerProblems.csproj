@@ -37,10 +37,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BigDecimal-v1.0.0.0, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\BigDecimal.1.0.0\BigDecimal-v1.0.0.0.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -138,6 +134,7 @@
     <Compile Include="Problems001_100\Problems081_090\Problem082.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem083.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem084.cs" />
+    <Compile Include="Problems001_100\Problems081_090\Problem087.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem089.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem091.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />

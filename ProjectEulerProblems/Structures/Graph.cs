@@ -9,10 +9,17 @@ namespace ProjectEulerProblems.Structures
     public class Graph
     {
         public Dictionary<string, Vertex> vertexNames { get; }
+        public HashSet<Edge> edges { get; }
         
         public Graph()
         {
             vertexNames = new Dictionary<string, Vertex>();
+            edges = new HashSet<Edge>();
+        }
+
+        public void AddVertex(String s)
+        {
+            this.AddVertex(new Vertex(s));
         }
 
         public void AddVertex(Vertex v)
@@ -38,6 +45,7 @@ namespace ProjectEulerProblems.Structures
             Vertex targetVertex = vertexNames[end];
             Edge newEdge = new Edge(sourceVertex, targetVertex, cost);
             sourceVertex.AddEdge(newEdge);
+            edges.Add(newEdge);
         }
 
         public Vertex GetVertex(string name)
@@ -79,6 +87,39 @@ namespace ProjectEulerProblems.Structures
                     }
                 }
             }
+        }
+
+        public List<Edge> DoKruskal()
+        {
+            List<HashSet<Vertex>> sets = new List<HashSet<Vertex>>();
+            foreach(Vertex v in vertexNames.Values)
+            {
+                HashSet<Vertex> h = new HashSet<Vertex>();
+                h.Add(v);
+                sets.Add(h);
+            }
+
+            List<Edge> result = new List<Edge>();
+            List<Edge> es = new List<Edge>(edges);
+            es = es.OrderBy(x => x.cost).ToList();
+            foreach(Edge e in es)
+            {
+                int v1 = FindSet(sets, e.start);
+                int v2 = FindSet(sets, e.end);
+                if(v1 != v2)
+                {
+                    result.Add(e);
+                    sets[v1].UnionWith(sets[v2]);
+                    sets.RemoveAt(v2);
+                }
+            }
+
+            return result;
+        }
+
+        private int FindSet(List<HashSet<Vertex>> sets, Vertex v)
+        {
+            return sets.FindIndex(x => x.Contains(v));
         }
 
         public void Reset()

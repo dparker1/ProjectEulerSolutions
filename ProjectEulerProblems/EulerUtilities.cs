@@ -118,6 +118,28 @@ namespace ProjectEulerProblems
             return IsWholeNumber(Math.Pow(num,((double) 1)/root));
         }
 
+        public static bool IsPower(long num, long divisor)
+        {
+            long exp = divisor;
+            int i = 1;
+            while(exp < num)
+            {
+                exp *= exp;
+                i *= 2;
+            }
+            if(num == exp)
+            {
+                return true;
+            }
+            long[] powers = new long[i / 2];
+            powers[powers.Length - 1] = exp;
+            for(int j = powers.Length - 2; j >= 0; j--)
+            {
+                powers[j] = powers[j + 1] / divisor;
+            }
+            return (Array.BinarySearch(powers, num) >= 0);
+        }
+
         public static List<int> GetDivisorList(int number)
         {
             List<int> returned = new List<int>();

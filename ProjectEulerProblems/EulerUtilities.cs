@@ -23,6 +23,18 @@ namespace ProjectEulerProblems
             return (int) (((low + high) / 2.0) * (high - low + 1));
         }
 
+        public static long ModularExponent(long b, long e, long mod)
+        {
+            long curr = 1, eCount = 0;
+            while(eCount < e)
+            {
+                curr *= b;
+                curr %= mod;
+                eCount++;
+            }
+            return curr;
+        }
+
         public static List<long> GeneratePrimes(int limit)
         {
             long[] primes = new long[limit];

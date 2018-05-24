@@ -13,7 +13,7 @@ namespace ProjectEulerProblems
             int triangleNumber = 1;
             for(int i = 2; i < Int32.MaxValue; i++)
             {
-                if(EulerUtilities.GetDivisorList(triangleNumber).Count > 500)
+                if(EulerUtilities.FindProperDivisors(triangleNumber).Count > 500)
                 {
                     break;
                 }

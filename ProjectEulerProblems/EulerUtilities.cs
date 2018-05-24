@@ -152,21 +152,6 @@ namespace ProjectEulerProblems
             return (Array.BinarySearch(powers, num) >= 0);
         }
 
-        public static List<int> GetDivisorList(int number)
-        {
-            List<int> returned = new List<int>();
-            for(int divisor = 1; divisor <= Math.Sqrt(number); divisor++)
-            {
-                if(number % divisor == 0)
-                {
-                    returned.Add(divisor);
-                    returned.Add(number / divisor);
-                }
-            }
-
-            return returned;
-        }
-
         public static long[] GetBinomialCoefficients(int row)
         {
             long[][] rows = new long[row + 1][];
@@ -241,6 +226,29 @@ namespace ProjectEulerProblems
             }
 
             return result;
+        }
+
+        public static int CountDivisors(int n)
+        {
+            int top = n;
+            int r = 0;
+            if(n == 1)
+            {
+                return 1;
+            }
+            for(int i = 1; i < top && i <= Math.Sqrt(n); ++i)
+            {
+                if(n % i == 0)
+                {
+                    top = n / i;
+                    if(top != i)
+                    {
+                        r++;
+                    }
+                    r++;
+                }
+            }
+            return r;
         }
 
         public static List<string> Permute(string s)
@@ -332,6 +340,11 @@ namespace ProjectEulerProblems
             }
 
             return GreatestCommonDivisor(b, a % b);
+        }
+
+        public static int LeastCommonMultiple(int a, int b)
+        {
+            return (a * b) / GreatestCommonDivisor(a, b);
         }
 
         public static long Factorial(int n)

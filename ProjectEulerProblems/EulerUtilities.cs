@@ -181,6 +181,35 @@ namespace ProjectEulerProblems
             return rows[row];
         }
 
+        public static long[][] GetPascalsTriangle(int row)
+        {
+            long[][] rows = new long[row + 1][];
+            for(int i = 0; i <= row; i++)
+            {
+                if(i == 0)
+                {
+                    rows[i] = new long[] { 1 };
+                }
+                else if(i == 1)
+                {
+                    rows[i] = new long[] { 1, 1 };
+                }
+                else
+                {
+                    rows[i] = new long[i + 1];
+                    rows[i][0] = 1;
+                    rows[i][i] = 1;
+                    for(long z = 1; z < i; z++)
+                    {
+                        rows[i][z] = rows[i - 1][z - 1] + rows[i - 1][z];
+                    }
+                }
+
+            }
+
+            return rows;
+        }
+
         public static BigInteger[][] GetBigPascalsTriangle(int row)
         {
             BigInteger[][] rows = new BigInteger[row + 1][];

@@ -156,6 +156,7 @@
     <Compile Include="Problems101_200\Problems121_130\Problem124.cs" />
     <Compile Include="Problems101_200\Problems121_130\Problem125.cs" />
     <Compile Include="Problems101_200\Problems141_150\Problem145.cs" />
+    <Compile Include="Problems101_200\Problems171_180\Problem179.cs" />
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structures\Graph.cs" />

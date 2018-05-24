@@ -230,23 +230,22 @@ namespace ProjectEulerProblems
 
         public static int CountDivisors(int n)
         {
-            int top = n;
             int r = 0;
             if(n == 1)
             {
                 return 1;
             }
-            for(int i = 1; i < top && i <= Math.Sqrt(n); ++i)
+            int i;
+            for(i = 1; i < Math.Sqrt(n); i++)
             {
                 if(n % i == 0)
                 {
-                    top = n / i;
-                    if(top != i)
-                    {
-                        r++;
-                    }
-                    r++;
+                    r += 2;
                 }
+            }
+            if(i * i == n)
+            {
+                r++;
             }
             return r;
         }

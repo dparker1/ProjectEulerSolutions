@@ -24,6 +24,10 @@ namespace ProjectEulerProblems
                     {
                         continue;
                     }
+                    if(n % 2 == 0 && d % 2 == 0)
+                    {
+                        continue;
+                    }
                     if(EulerUtilities.GreatestCommonDivisor(n,d)==1)
                     {
                         count++;

@@ -517,6 +517,39 @@ namespace ProjectEulerProblems
             return copied;
         }
 
+        public static long ModFactorial(long n, long mod)
+        {
+            long result = 1;
+            for(long i = n + 1; i < mod; i++)
+            {
+                result = (result * i) % mod;
+            }
+            result = ModInverse(result, mod);
+            result = mod - result;
+            return result;
+        }
+
+        public static long ModInverse(long n, long mod)
+        {
+            long t = 0;
+            long r = mod;
+            long newT = 1;
+            long newR = n;
+            while(newR != 0)
+            {
+                long quo = r / newR;
+
+                long tmp = t;
+                t = newT;
+                newT = tmp - quo * newT;
+
+                tmp = r;
+                r = newR;
+                newR = tmp - quo * newR;
+            }
+            return t < 0 ? t + mod : t;
+        }
+
 
     }
 }

@@ -257,6 +257,24 @@ namespace ProjectEulerProblems
             return result;
         }
 
+        public static List<long> FindProperDivisors(long n)
+        {
+            List<long> result = new List<long>() { 1 };
+            for(long i = 2; i <= Math.Sqrt(n); i++)
+            {
+                if(n % i == 0)
+                {
+                    result.Add(i);
+                    if(i != (n / i))
+                    {
+                        result.Add(n / i);
+                    }
+                }
+            }
+
+            return result;
+        }
+
         public static int CountDivisors(int n)
         {
             int r = 0;

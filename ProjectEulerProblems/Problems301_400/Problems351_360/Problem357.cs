@@ -17,7 +17,6 @@ namespace ProjectEulerProblems
             {
                 isPrime[prime] = true;
             }
-            //.Where(x => EulerUtilities.IsPrime(2 + (x / 2)))
             IEnumerable<long> primesLessOne = primes.ConvertAll(x => x - 1);
             long sum = 0;
             foreach(long primeLessOne in primesLessOne)

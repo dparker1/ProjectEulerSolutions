@@ -167,6 +167,12 @@
     <Compile Include="Problems201_300\Problems201_210\Problem206.cs" />
     <Compile Include="Problems301_400\Problems351_360\Problem357.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem381.cs" />
+    <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structures\Graph.cs" />
@@ -174,6 +180,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="txt\Problem013Text.txt" />

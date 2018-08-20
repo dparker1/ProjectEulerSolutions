@@ -78,7 +78,8 @@ namespace ProjectEulerProblems
             {
                 return false;
             }
-            for(Int64 i = 2; i <= Math.Sqrt(possiblePrime); i++)
+            double sqrt = Math.Sqrt(possiblePrime);
+            for(Int64 i = 2; i <= sqrt; i++)
             {
                 if(possiblePrime % i == 0)
                 {

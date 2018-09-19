@@ -173,6 +173,8 @@
     <Compile Include="Problems301_400\Problems381_390\Problem381.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
+    <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
+    <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -185,7 +187,9 @@
     <Compile Include="Structures\Vector3.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

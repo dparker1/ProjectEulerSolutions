@@ -389,6 +389,21 @@ namespace ProjectEulerProblems
             return GreatestCommonDivisor(b, a % b);
         }
 
+        public static long GreatestCommonDivisor(long a, long b)
+        {
+            if(a == 0)
+            {
+                return b;
+            }
+
+            if(b == 0)
+            {
+                return a;
+            }
+
+            return GreatestCommonDivisor(b, a % b);
+        }
+
         public static int LeastCommonMultiple(int a, int b)
         {
             return (a * b) / GreatestCommonDivisor(a, b);
@@ -440,6 +455,11 @@ namespace ProjectEulerProblems
             return new HashSet<long>(PrimeFactors(n));
         }
 
+        public static HashSet<int> UniquePrimeFactors(int n)
+        {
+            return new HashSet<int>(PrimeFactors(n));
+        }
+
         public static List<long> PrimeFactors(long n)
         {
             List<long> result = new List<long>();
@@ -453,12 +473,62 @@ namespace ProjectEulerProblems
                 {
                     result.Add(Primes[i]);
                     n /= Primes[i];
-                    i = -1;
+                    i -= 1;
                 }
                 if(Primes.Contains(n))
                 {
                     result.Add(n);
                     return result;
+                }
+            }
+            return result;
+        }
+
+        public static List<int> PrimeFactors(int n)
+        {
+            List<int> result = new List<int>();
+            for(int i = 0; i < Primes.Count; i++)
+            {
+                if(Primes[i] > n)
+                {
+                    break;
+                }
+                if(n % Primes[i] == 0)
+                {
+                    result.Add((int)Primes[i]);
+                    n /= (int)Primes[i];
+                    i -= 1;
+                }
+                if(Primes.Contains(n))
+                {
+                    result.Add(n);
+                    return result;
+                }
+            }
+            return result;
+        }
+
+        public static Dictionary<long, int> PrimeFactorsWithCount(long n)
+        {
+            Dictionary<long, int> result = new Dictionary<long, int>();
+            for(int i = 0; i < Primes.Count; i++)
+            {
+                if(Primes[i] > n)
+                {
+                    break;
+                }
+                if(n % Primes[i] == 0)
+                {
+                    if(result.ContainsKey(Primes[i]))
+                    {
+                        result[Primes[i]]++;
+                    }
+                    else
+                    {
+                        result[Primes[i]] = 1;
+                    }
+                    n /= Primes[i];
+                    i -= 1;
                 }
             }
             return result;

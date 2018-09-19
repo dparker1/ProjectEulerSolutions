@@ -15,7 +15,7 @@ namespace ProjectEulerProblems
             int streak = 0, answer = 0;
             for(int i = 646; i < int.MaxValue; i++)
             {
-                uniques = EulerUtilities.UniquePrimeFactors(i);
+                uniques = EulerUtilities.UniquePrimeFactors((long)i);
                 if(uniques.Count == 4)
                 {
                     streak++;

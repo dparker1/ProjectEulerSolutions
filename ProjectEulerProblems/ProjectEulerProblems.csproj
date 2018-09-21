@@ -169,6 +169,7 @@
     <Compile Include="Problems301_400\Problems341_350\Problem345.cs" />
     <Compile Include="Problems301_400\Problems341_350\Problem346.cs" />
     <Compile Include="Problems301_400\Problems341_350\Problem347.cs" />
+    <Compile Include="Problems301_400\Problems341_350\Problem348.cs" />
     <Compile Include="Problems301_400\Problems351_360\Problem357.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem381.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />

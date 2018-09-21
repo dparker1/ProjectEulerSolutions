@@ -101,6 +101,40 @@ namespace ProjectEulerProblems
             return true;
         }
 
+        public static List<int> GeneratePalindromes(int max)
+        {
+            int n;
+            List<int> result = new List<int>();
+            for(int odd = 0; odd <= 1; odd++)
+            {
+                int i = 1;
+                while((n = CreatePalindrome(i, 10, odd)) < max)
+                {
+                    result.Add(n);
+                    i++;
+                }
+            }
+            return result;
+        }
+
+        private static int CreatePalindrome(int input, int b, int odd)
+        {
+            int n = input;
+            int sarahPalin = input;
+            if(odd == 1)
+            {
+                n /= b;
+            }
+
+            while(n > 0)
+            {
+                sarahPalin = sarahPalin * b + (n % b);
+                n /= b;
+            }
+            return sarahPalin;
+
+        }
+
         public static bool IsWholeNumber(double d)
         {
             return Math.Abs(d % 1) <= Double.Epsilon * 100;

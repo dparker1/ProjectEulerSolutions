@@ -23,16 +23,24 @@ namespace ProjectEulerProblems
             return (int) (((low + high) / 2.0) * (high - low + 1));
         }
 
-        public static long ModularExponent(long b, long e, long mod)
+        public static long ModularExponent(long b, long e, long m)
         {
-            long curr = 1, eCount = 0;
-            while(eCount < e)
+            long b1 = 1;
+            while(e > 1)
             {
-                curr *= b;
-                curr %= mod;
-                eCount++;
+                if(e % 2 == 0)
+                {
+                    b = (b * b) % m;
+                    e /= 2;
+                }
+                else
+                {
+                    b1 = (b1 * b) % m;
+                    b = (b * b) % m;
+                    e = (e - 1) / 2;
+                }
             }
-            return curr;
+            return (b * b1) % m;
         }
 
         public static List<long> GeneratePrimes(int limit)
@@ -158,6 +166,27 @@ namespace ProjectEulerProblems
         public static bool IsPentagonalNumber(long n)
         {
             return IsWholeNumber((Math.Sqrt(24 * n + 1) + 1) / 6);
+        }
+
+        public static List<int> NumbersFromFactors(List<int> factors, int limit)
+        {
+            List<int> result = new List<int>();
+            NumbersFromFactors(1, 0, factors, result, limit);
+            return result;
+        }
+
+        private static void NumbersFromFactors(int n, int start, List<int> factors, List<int> soFar, int limit)
+        {
+            for(int i = start; i < factors.Count; i++)
+            {
+                long p = factors[i] * n;
+                if(p > limit)
+                {
+                    break;
+                }
+                soFar.Add((int)p);
+                NumbersFromFactors((int)p, i, factors, soFar, limit);
+            }
         }
 
         public static bool IsNthPower(long num, int root)

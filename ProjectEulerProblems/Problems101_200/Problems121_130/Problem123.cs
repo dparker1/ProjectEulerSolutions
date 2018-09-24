@@ -8,23 +8,20 @@ namespace ProjectEulerProblems
 {
     public class Problem123
     {
-        public static long Solve()
+        public static int Solve()
         {
             List<long> primes = EulerUtilities.GeneratePrimes(1000000);
-            long pSquared, r = 0;
+            long r = 0;
             long limit = (long)Math.Pow(10, 10);
-            int n;
-            for(n = 7037; n < primes.Count; n+=2)
+            for(int n = 1; n < primes.Count; n+=2)
             {
+                r = 2 * n * primes[n - 1];
                 if(r > limit)
                 {
-                    break;
+                    return n;
                 }
-                pSquared = primes[n] * primes[n];
-                r = (EulerUtilities.ModularExponent(primes[n] - 1, n, pSquared) + EulerUtilities.ModularExponent(primes[n] + 1, n, pSquared)) % pSquared;
-
             }
-            return n;
+            return 0;
         }
     }
 }

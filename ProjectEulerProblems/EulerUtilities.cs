@@ -189,6 +189,27 @@ namespace ProjectEulerProblems
             }
         }
 
+        public static int CountNumbersFromFactors(List<int> factors, long limit)
+        {
+            return CountNumbersFromFactors(1, 0, factors, limit);
+        }
+
+        private static int CountNumbersFromFactors(long n, long start, List<int> factors, long limit)
+        {
+            int res = 0;
+            for(long i = start; i < factors.Count; i++)
+            {
+                long p = factors[(int)i] * n;
+                if(p > limit)
+                {
+                    break;
+                }
+                res++;
+                res += CountNumbersFromFactors((int)p, i, factors, limit);
+            }
+            return res;
+        }
+
         public static bool IsNthPower(long num, int root)
         {
             return IsWholeNumber(Math.Pow(num,((double) 1)/root));
@@ -606,6 +627,33 @@ namespace ProjectEulerProblems
                 {
                     result.RemoveAll(x => ((x % i) == 0));
                 }
+            }
+            return result;
+        }
+
+        public static long TotientCount(long n)
+        {
+            long result = n;
+            long r = n;
+            foreach(long p in Primes)
+            {
+                if(p * p > r)
+                {
+                    break;
+                }
+                if(r % p != 0)
+                {
+                    continue;
+                }
+                do
+                {
+                    r /= p;
+                } while(r % p == 0);
+                result -= result / p;
+            }
+            if(r > 1)
+            {
+                result -= result / r;
             }
             return result;
         }

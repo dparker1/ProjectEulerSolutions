@@ -80,6 +80,11 @@ namespace ProjectEulerProblems
             return returned;
         }
 
+        public static bool IsInteger(double n)
+        {
+            return (n % 1) == 0;
+        }
+
         public static bool IsPrime(Int64 possiblePrime)
         {
             if(possiblePrime < 2)
@@ -614,6 +619,65 @@ namespace ProjectEulerProblems
                     n /= Primes[i];
                     i -= 1;
                 }
+            }
+            return result;
+        }
+
+        public static bool IsFibonacciPossible(int k, int n)
+        {
+            List<int> fibonacci = EulerUtilities.Fibonacci(k);
+            return IsFibonacciPossible(k, n, 0, fibonacci, fibonacci.Count - 1);
+        }
+
+        public static bool IsFibonacciPossible(int k, int n, int soFar, List<int> fibs, int fibsStart)
+        {
+            if(k < 0)
+            {
+                return false;
+            }
+            if(soFar > n)
+            {
+                return false;
+            }
+            if(soFar == n && k == 0)
+            {
+                return true;
+            }
+            bool sol = false;
+            for(int i = fibsStart; i >= 0; i--)
+            {
+                int newK = k - fibs[i];
+                if(newK < 0)
+                {
+                    continue;
+                }
+                sol = sol || IsFibonacciPossible(newK, n, soFar + 1, fibs, LargestFibIndexLessThanN(newK, i, fibs));
+            }
+            return sol;
+        }
+
+        public static int LargestFibIndexLessThanN(int n, int start, List<int> fibs)
+        {
+            for(int i = start; i >= 0; i--)
+            {
+                if(n >= fibs[i])
+                {
+                    return i;
+                }
+            }
+            return 0;
+        }
+
+        public static List<int> Fibonacci(int n)
+        {
+            List<int> result = new List<int>();
+            result.Add(1);
+            result.Add(1);
+            int count = 2;
+            while(result.Last() < n)
+            {
+                result.Add(result[count - 1] + result[count - 2]);
+                count++;
             }
             return result;
         }

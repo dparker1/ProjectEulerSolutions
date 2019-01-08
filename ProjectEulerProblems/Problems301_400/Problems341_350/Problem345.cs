@@ -10,6 +10,18 @@ namespace ProjectEulerProblems
 {
     public class Problem345
     {
+        public static int n;
+        public static int[] lrows;
+        public static int[] lcols;
+        public static bool[] s;
+        public static bool[] t;
+        public static int[] matchRow;
+        public static int[] matchCol;
+        public static int maxMatch;
+        public static int[] slack1;
+        public static int[] slack2;
+        public static int[] prev;
+        public static int[][] a;
         public static int Solve()
         {
             // http://hungarianalgorithm.com/examplehungarianalgorithm.php
@@ -25,103 +37,264 @@ namespace ProjectEulerProblems
                     numbers[i][j] = int.Parse(nums[j]);
                 }
             }
-            int[][] adjustedNumbers = EulerUtilities.DeepCopy(numbers);
+            a = EulerUtilities.DeepCopy(numbers);
             int max = 0;
-            for(int i = 0; i < adjustedNumbers.Length; i++)
+            for(int i = 0; i < a.Length; i++)
             {
-                for(int j = 0; j < adjustedNumbers[i].Length; j++)
+                for(int j = 0; j < a[i].Length; j++)
                 {
-                    if(adjustedNumbers[i][j] > max)
+                    if(a[i][j] > max)
                     {
-                        max = adjustedNumbers[i][j];
+                        max = a[i][j];
                     }
                 }
             }
 
-            for(int i = 0; i < adjustedNumbers.Length; i++)
+            for(int i = 0; i < a.Length; i++)
             {
-                for(int j = 0; j < adjustedNumbers[i].Length; j++)
+                for(int j = 0; j < a[i].Length; j++)
                 {
-                    adjustedNumbers[i][j] = max - adjustedNumbers[i][j];
+                    a[i][j] = max - a[i][j];
                 }
             }
-
-            return MinAssignmentCost(adjustedNumbers, numbers);
+            int[] assignments = MinAssignmentCost();
+            int sum = 0;
+            for(int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i][assignments[i]];
+            }
+            return sum;
         }
 
-        public static int MinAssignmentCost(int[][] a, int[][] original)
+        // https://github.com/antifriz/hungarian-algorithm-n3/blob/master/src/HungarianAlgorithm.cs
+        public static int[] MinAssignmentCost()
         {
-            HashSet<int> takenRows = new HashSet<int>();
-            HashSet<int> takenCols = new HashSet<int>();
-            List<Tuple<int, int>> assignments = new List<Tuple<int, int>>();
-            while(takenRows.Count < a.Length)
-            {
-                Tuple<int, int> minIndex = MinimumFromRemaining(takenRows, takenCols, a);
-                assignments.Add(minIndex);
-                takenRows.Add(minIndex.Item1);
-                takenCols.Add(minIndex.Item2);
-            }
-            int[][] temp = EulerUtilities.DeepCopy(a);
-            foreach(var ass in assignments)
-            {
-                for(int c = 0; c < a[ass.Item1].Length; c++)
-                {
-                    temp[ass.Item1][c] -= a[ass.Item1][ass.Item2];
-                }
-            }
-            Tuple<int, int> leastReducedCost = Minimum(temp);
-            SwapAssignments(assignments, leastReducedCost.Item1, leastReducedCost.Item2);
-            return 0;
-        }
+            n = a.Length;
+            lrows = new int[n];
+            lcols = new int[n];
+            s = new bool[n];
+            t = new bool[n];
+            matchRow = new int[n];
+            matchCol = new int[n];
+            maxMatch = 0;
+            slack1 = new int[n];
+            slack2 = new int[n];
+            prev = new int[n];
 
-        public static Tuple<int, int> MinimumFromRemaining(HashSet<int> takenR, HashSet<int> takenC, int[][] a)
-        {
-            int min = int.MaxValue;
-            Tuple<int, int> result = null;
-            for(int r = 0; r < a.Length; r++)
+            InitMatch();
+            InitLabels();
+            maxMatch = 0;
+            InitMatching();
+            Queue<int> q = new Queue<int>();
+            while(maxMatch != n)
             {
-                if(!takenR.Contains(r))
+                q.Clear();
+                InitST();
+                int root = 0;
+                int x = 0, y = 0;
+                for(x = 0; x < n; x++)
                 {
-                    for(int c = 0; c < a[r].Length; c++)
+                    if(matchRow[x] != -1)
                     {
-                        if(!takenC.Contains(c) && a[r][c] < min)
+                        continue;
+                    }
+                    q.Enqueue(x);
+                    root = x;
+                    prev[x] = -2;
+                    s[x] = true;
+                    break;
+                }
+                for(int i = 0; i < n; i++)
+                {
+                    slack1[i] = a[root][i] - lrows[root] - lcols[i];
+                    slack2[i] = root;
+                }
+
+                while(true)
+                {
+                    while(q.Count != 0)
+                    {
+                        x = q.Dequeue();
+                        int lRow = lrows[x];
+                        for(y = 0; y < n; y++)
                         {
-                            result = new Tuple<int, int>(r, c);
-                            min = a[r][c];
+                            if(a[x][y] != lRow + lcols[y] || t[y])
+                            {
+                                continue;
+                            }
+                            if(matchCol[y] == -1)
+                            {
+                                break;
+                            }
+                            t[y] = true;
+                            q.Enqueue(matchCol[y]);
+                            AddTree(matchCol[y], x);
+                        }
+                        if(y < n)
+                        {
+                            break;
                         }
                     }
+                    if(y < n)
+                    {
+                        break;
+                    }
+                    Update();
+                    for(y = 0; y < n; y++)
+                    {
+                        if(t[y] || slack1[y] != 0)
+                        {
+                            continue;
+                        }
+                        if(matchCol[y] == -1)
+                        {
+                            x = slack2[y];
+                            break;
+                        }
+                        t[y] = true;
+                        if(s[matchCol[y]])
+                        {
+                            continue;
+                        }
+                        q.Enqueue(matchCol[y]);
+                        AddTree(matchCol[y], slack2[y]);
+                    }
+                    if(y < n)
+                    {
+                        break;
+                    }
+                }
+                maxMatch++;
+
+                int ty;
+                for(int cx = x, cy = y; cx != -2; cx = prev[cx], cy = ty)
+                {
+                    ty = matchRow[cx];
+                    matchCol[cy] = cx;
+                    matchRow[cx] = cy;
                 }
             }
-            return result;
+
+            return matchRow;
         }
 
-        public static Tuple<int, int> Minimum(int[][] a)
+        public static void InitMatch()
         {
-            int min = int.MaxValue;
-            Tuple<int, int> result = null;
-            for(int r = 0; r < a.Length; r++)
+            for(int i = 0; i < n; i++)
             {
-                for(int c = 0; c < a[r].Length; c++)
+                matchRow[i] = -1;
+                matchCol[i] = -1;
+            }
+        }
+
+        public static void InitST()
+        {
+            for(int i = 0; i < n; i++)
+            {
+                s[i] = false;
+                t[i] = false;
+            }
+        }
+
+        public static void InitLabels()
+        {
+            for(int i = 0; i < n; i++)
+            {
+                int minRow = a[i][0];
+                for(int j = 0; j < n; j++)
                 {
-                    if(a[r][c] < min)
+                    if(a[i][j] < minRow)
                     {
-                        min = a[r][c];
-                        result = new Tuple<int, int>(r, c);
+                        minRow = a[i][j];
+                    }
+                    if(minRow == 0)
+                    {
+                        break;
+                    }
+                }
+                lrows[i] = minRow;
+            }
+            for(int j = 0; j < n; j++)
+            {
+                int minColumn = a[0][j] - lrows[0];
+                for(int i = 0; i < n; i++)
+                {
+                    if(a[i][j] - lrows[i] < minColumn)
+                    {
+                        minColumn = a[i][j] - lrows[i];
+                    }
+                    if(minColumn == 0)
+                    {
+                        break;
+                    }
+                }
+                lcols[j] = minColumn;
+            }
+        }
+
+        public static void InitMatching()
+        {
+            for(int i = 0; i < n; i++)
+            {
+                for(int j = 0; j < n; j++)
+                {
+                    if(a[i][j] != lrows[i] + lcols[j] || matchCol[j] != -1)
+                    {
+                        continue;
+                    }
+                    matchRow[i] = j;
+                    matchCol[j] = i;
+                    maxMatch++;
+                    break;
+                }
+            }
+        }
+
+        public static void Update()
+        {
+            int delta = int.MaxValue;
+            for(int i = 0; i < n; i++)
+            {
+                if(!t[i])
+                {
+                    if(delta > slack1[i])
+                    {
+                        delta = slack1[i];
                     }
                 }
             }
-            return result;
+            for(int i = 0; i < n; i++)
+            {
+                if(s[i])
+                {
+                    lrows[i] = lrows[i] + delta;
+                }
+                if(t[i])
+                {
+                    lcols[i] = lcols[i] - delta;
+                }
+                else
+                {
+                    slack1[i] = slack1[i] - delta;
+                }
+            }
         }
 
-        public static void SwapAssignments(List<Tuple<int, int>> assignments, int source, int sink)
+        public static void AddTree(int x, int prevX)
         {
-            var ass1 = assignments.Find(x => x.Item1 == source);
-            var ass2 = assignments.Find(x => x.Item2 == sink);
-            var temp1 = new Tuple<int, int>(ass1.Item1, ass2.Item2);
-            var temp2 = new Tuple<int, int>(ass2.Item1, ass1.Item2);
-            int i1 = assignments.IndexOf(ass1), i2 = assignments.IndexOf(ass2);
-            assignments[i1] = temp1;
-            assignments[i2] = temp2;
+            s[x] = true;
+            prev[x] = prevX;
+
+            int lRow = lrows[x];
+            for(int i = 0; i < n; i++)
+            {
+                if(a[x][i] - lRow - lcols[i] >= slack1[i])
+                {
+                    continue;
+                }
+                slack1[i] = a[x][i] - lRow - lcols[i];
+                slack2[i] = x;
+            }
         }
     }
 }

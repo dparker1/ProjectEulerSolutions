@@ -173,6 +173,7 @@
     <Compile Include="Problems201_300\Problems201_210\Problem206.cs" />
     <Compile Include="Problems201_300\Problems241_250\Problem243.cs" />
     <Compile Include="Problems201_300\Problems261_270\Problem265.cs" />
+    <Compile Include="Problems201_300\Problems261_270\Problem267.cs" />
     <Compile Include="Problems201_300\Problems281_290\Problem286.cs" />
     <Compile Include="Problems301_400\Problems311_320\Problem315.cs" />
     <Compile Include="Problems301_400\Problems321_330\Problem323.cs" />

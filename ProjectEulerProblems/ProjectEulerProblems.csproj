@@ -176,13 +176,13 @@
     <Compile Include="Problems201_300\Problems261_270\Problem267.cs" />
     <Compile Include="Problems201_300\Problems281_290\Problem286.cs" />
     <Compile Include="Problems301_400\Problems311_320\Problem315.cs" />
+    <Compile Include="Problems301_400\Problems311_320\Problem317.cs" />
     <Compile Include="Problems301_400\Problems321_330\Problem323.cs" />
     <Compile Include="Problems301_400\Problems341_350\Problem345.cs" />
     <Compile Include="Problems301_400\Problems341_350\Problem346.cs" />
     <Compile Include="Problems301_400\Problems341_350\Problem347.cs" />
     <Compile Include="Problems301_400\Problems341_350\Problem348.cs" />
     <Compile Include="Problems301_400\Problems351_360\Problem357.cs" />
-    <Compile Include="Problems301_400\Problems371_380\Problem371.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem381.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />
     <Compile Include="Problems301_400\Problems391_400\Problem392.cs" />
@@ -230,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Problems201_300\Problems251_260\" />
+    <Folder Include="Problems301_400\Problems371_380\" />
     <Folder Include="Problems401_500\Problems401_410\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

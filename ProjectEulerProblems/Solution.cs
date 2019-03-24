@@ -12,7 +12,7 @@ namespace ProjectEulerProblems
         public static void Main(String[] args)
         {
             Stopwatch timer = Stopwatch.StartNew();
-            Console.WriteLine(Problem317.Solve());
+            Console.WriteLine(Problem587.Solve());
             timer.Stop();                                                                                                                                                                                          
             Console.WriteLine("Time: " + timer.ElapsedMilliseconds + " ms");
             Console.Read();

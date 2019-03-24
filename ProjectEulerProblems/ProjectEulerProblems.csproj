@@ -188,6 +188,7 @@
     <Compile Include="Problems301_400\Problems391_400\Problem392.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
+    <Compile Include="Problems501_600\Problems581_590\Problem587.cs" />
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

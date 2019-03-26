@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +39,14 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Solver.Foundation, Version=3.0.2.10889, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Solver.Foundation.3.1.0\lib\Microsoft.Solver.Foundation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NMath, Version=6.2.0.51, Culture=neutral, PublicKeyToken=873235918a322639, processorArchitecture=MSIL">
+      <HintPath>..\packages\CenterSpace.NMath.6.2.0.51\lib\net40\NMath.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -186,6 +196,7 @@
     <Compile Include="Problems301_400\Problems381_390\Problem381.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />
     <Compile Include="Problems301_400\Problems391_400\Problem392.cs" />
+    <Compile Include="Problems401_500\Problems441_450\Problem449.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem587.cs" />
@@ -205,6 +216,7 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -233,12 +245,20 @@
     <Folder Include="Problems201_300\Problems251_260\" />
     <Folder Include="Problems301_400\Problems371_380\" />
     <Folder Include="Problems401_500\Problems401_410\" />
+    <Folder Include="Problems401_500\Problems431_440\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>call "$(DevEnvDir)..\..\vc\vcvarsall.bat" x86
 "$(DevEnvDir)..\..\vc\bin\EditBin.exe" "$(TargetPath)"  /LARGEADDRESSAWARE</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\CenterSpace.NMath.6.2.0.51\build\CenterSpace.NMath.targets" Condition="Exists('..\packages\CenterSpace.NMath.6.2.0.51\build\CenterSpace.NMath.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\CenterSpace.NMath.6.2.0.51\build\CenterSpace.NMath.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CenterSpace.NMath.6.2.0.51\build\CenterSpace.NMath.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

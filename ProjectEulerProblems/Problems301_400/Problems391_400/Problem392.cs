@@ -8,40 +8,62 @@ namespace ProjectEulerProblems
 {
     public class Problem392
     {
+        static double delta = 0.0001;
         public static double Solve()
         {
-            double area = 100;
-            double minX = 0, minY = 0, minZ = 0, minQ = 0;
-            for(double x = 20; x <= 30; x += 0.1)
+            int xDim = 5;
+            double[] x = new double[xDim];
+            init(x, xDim);
+            for(int i = 0; i < 100000; i++)
             {
-                for(double y = 35; y <= 41; y += 0.1)
-                {
-                    for(double z = 50; z <= 60; z += 0.1)
-                    {
-                        for(double q = 60; q <= 70; q += 0.1)
-                        {
-                            double xRad = ToRad(x);
-                            double yRad = ToRad(y);
-                            double zRad = ToRad(z);
-                            double qRad = ToRad(q);
-                            double temp = Math.Sin(xRad) + Math.Cos(xRad) * (Math.Sin(yRad) - Math.Sin(xRad)) + Math.Cos(yRad) * (Math.Sin(zRad) - Math.Sin(yRad)) + Math.Cos(zRad) * (Math.Sin(qRad) - Math.Sin(zRad)) + Math.Cos(qRad) * (1 - Math.Sin(qRad));
-                            if(temp < area)
-                            {
-                                minX = x;
-                                minY = y;
-                                minZ = z;
-                                minQ = q;
-                                area = temp;
-                            }
-                        }
-                    }
-                }
+                Tuple<int, int> gradient = grad(x);
+                x[gradient.Item1] += gradient.Item2 * delta;
             }
-            Console.WriteLine(minX);
-            Console.WriteLine(minY);
-            Console.WriteLine(minZ);
-            Console.WriteLine(minQ);
-            return area * 4;
+            return func(x);
+        }
+
+        private static double func(double[] x)
+        {
+            double area = Math.Sin(x[0]) + (1 - Math.Sin(x.Last())) * Math.Cos(x.Last());
+            for(int i = 1; i < x.Length; i++)
+            {
+                area += (Math.Sin(x[i]) - Math.Sin(x[i - 1])) * Math.Cos(x[i]);
+            }
+            return area;
+        }
+
+        private static void init(double[] x, int xDim)
+        {
+            double c = (2 * Math.PI * xDim);
+            for(int i = 0; i < x.Length; i++)
+            {
+                x[i] = i /c;
+            }
+        }
+
+        private static Tuple<int, int> grad(double[] x)
+        {
+            double ev = func(x);
+            double maxDescent = 0;
+            double diff = 0;
+            Tuple<int, int> res = new Tuple<int, int>(0, 0);
+            for(int i = 0; i < x.Length; i++)
+            {
+                x[i] += delta;
+                diff = func(x) - ev;
+                if(diff < maxDescent)
+                {
+                    res = new Tuple<int, int>(i, 1);
+                }
+                x[i] -= 2 * delta;
+                diff = func(x) - ev;
+                if(diff < maxDescent)
+                {
+                    res = new Tuple<int, int>(i, -1);
+                }
+                x[i] += delta;
+            }
+            return res;
         }
 
         private static double ToRad(double x)

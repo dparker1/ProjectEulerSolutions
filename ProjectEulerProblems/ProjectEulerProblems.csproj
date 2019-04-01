@@ -205,9 +205,11 @@
     <Compile Include="Problems301_400\Problems351_360\Problem357.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem381.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />
+    <Compile Include="Problems301_400\Problems381_390\Problem389.cs" />
     <Compile Include="Problems301_400\Problems391_400\Problem392.cs" />
     <Compile Include="Problems401_500\Problems441_450\Problem449.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
+    <Compile Include="Problems501_600\Problems521_530\Problem525.cs" />
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem587.cs" />
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
@@ -256,7 +258,6 @@
     <Folder Include="Problems301_400\Problems371_380\" />
     <Folder Include="Problems401_500\Problems401_410\" />
     <Folder Include="Problems401_500\Problems431_440\" />
-    <Folder Include="Problems501_600\Problems521_530\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

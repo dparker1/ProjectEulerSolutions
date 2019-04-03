@@ -12,6 +12,7 @@ namespace ProjectEulerProblems
     {
         public static List<long> Primes;
         public static int processors= Environment.ProcessorCount;
+        public static double GoldenRatio = (1 + Math.Sqrt(5)) / 2;
 
         public static void LoadPrimes(int max)
         {
@@ -671,6 +672,20 @@ namespace ProjectEulerProblems
         public static List<int> Fibonacci(int n)
         {
             List<int> result = new List<int>();
+            result.Add(1);
+            result.Add(1);
+            int count = 2;
+            while(result.Last() < n)
+            {
+                result.Add(result[count - 1] + result[count - 2]);
+                count++;
+            }
+            return result;
+        }
+
+        public static List<long> Fibonacci(long n)
+        {
+            List<long> result = new List<long>();
             result.Add(1);
             result.Add(1);
             int count = 2;

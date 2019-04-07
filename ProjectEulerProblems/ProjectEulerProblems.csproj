@@ -182,6 +182,7 @@
     <Compile Include="Problems101_200\Problems121_130\Problem123.cs" />
     <Compile Include="Problems101_200\Problems121_130\Problem124.cs" />
     <Compile Include="Problems101_200\Problems121_130\Problem125.cs" />
+    <Compile Include="Problems101_200\Problems131_140\Problem139.cs" />
     <Compile Include="Problems101_200\Problems141_150\Problem144.cs" />
     <Compile Include="Problems101_200\Problems141_150\Problem145.cs" />
     <Compile Include="Problems101_200\Problems171_180\Problem179.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Problems201_300\Problems261_270\Problem265.cs" />
     <Compile Include="Problems201_300\Problems261_270\Problem267.cs" />
     <Compile Include="Problems201_300\Problems281_290\Problem286.cs" />
+    <Compile Include="Problems201_300\Problems291_300\Problem291.cs" />
     <Compile Include="Problems301_400\Problems311_320\Problem315.cs" />
     <Compile Include="Problems301_400\Problems311_320\Problem317.cs" />
     <Compile Include="Problems301_400\Problems321_330\Problem323.cs" />
@@ -255,6 +257,7 @@
     <Content Include="txt\Problem345Text.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Problems101_200\Problems151_160\" />
     <Folder Include="Problems201_300\Problems251_260\" />
     <Folder Include="Problems301_400\Problems371_380\" />
     <Folder Include="Problems401_500\Problems401_410\" />

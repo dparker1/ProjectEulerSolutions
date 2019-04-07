@@ -24,7 +24,7 @@ namespace ProjectEulerProblems
 
         private static double ArcLength(double t)
         {
-            return Math.Sqrt(a * a * NMathFunctions.Pow(Math.Sin(t), 2) + b * b * NMathFunctions.Pow(Math.Cos(t), 2));
+            return Math.Sqrt(a * a * Math.Pow(Math.Sin(t), 2) + b * b * Math.Pow(Math.Cos(t), 2));
         }
     }
 }

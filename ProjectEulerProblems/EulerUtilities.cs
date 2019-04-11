@@ -220,40 +220,6 @@ namespace ProjectEulerProblems
             return res;
         }
 
-        public static List<Tuple<int, int, int>> PythagoreanTriples(int limit)
-        {
-            int m = 2, n = 1;
-            List<Tuple<int, int, int>> result = new List<Tuple<int, int, int>>();
-            Tuple<int, int, int> t = new Tuple<int, int, int>(0, 0, 0);
-            int p = 0;
-            while(p < limit)
-            {
-                while(n < m)
-                {
-                    int m2 = m * m;
-                    int n2 = n * n;
-                    int a = m2 - n2;
-                    int b = 2 * m * n;
-                    int c = m2 + n2;
-                    p = a + b + c;
-                    if(p < limit)
-                    {
-                        if(b < a)
-                        {
-                            int s = a;
-                            a = b;
-                            b = s;
-                        }
-                        result.Add(new Tuple<int, int, int>(a, b, c));
-                    }
-                    n++;
-                }
-                n = 1;
-                m++;
-            }
-            return result;
-        }
-
         public static bool IsNthPower(long num, int root)
         {
             return IsWholeNumber(Math.Pow(num,((double) 1)/root));

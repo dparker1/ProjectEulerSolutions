@@ -43,6 +43,9 @@
       <HintPath>..\packages\DotImaging.Primitives2D.2.5.3\lib\net45\DotImaging.Primitives2D.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="gurobi80.netstandard20">
+      <HintPath>..\..\..\..\..\..\..\gurobi801\win64\lib\gurobi80.netstandard20.dll</HintPath>
+    </Reference>
     <Reference Include="MathNet.Numerics, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MathNet.Numerics.4.7.0\lib\net461\MathNet.Numerics.dll</HintPath>
       <Private>True</Private>
@@ -210,6 +213,7 @@
     <Compile Include="Problems301_400\Problems381_390\Problem387.cs" />
     <Compile Include="Problems301_400\Problems381_390\Problem389.cs" />
     <Compile Include="Problems301_400\Problems391_400\Problem392.cs" />
+    <Compile Include="Problems301_400\Problems391_400\Problem395.cs" />
     <Compile Include="Problems401_500\Problems441_450\Problem449.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
     <Compile Include="Problems501_600\Problems521_530\Problem525.cs" />
@@ -218,6 +222,7 @@
     <Compile Include="Problems501_600\Problems581_590\Problem587.cs" />
     <Compile Include="Problems601_700\Problems611_620\Problem613.cs" />
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
+    <Compile Include="Problems601_700\Problems641_650\Problem650.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

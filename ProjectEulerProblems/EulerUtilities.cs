@@ -11,12 +11,18 @@ namespace ProjectEulerProblems
     public static class EulerUtilities
     {
         public static List<long> Primes;
+        public static List<int> PrimesInt;
         public static int processors= Environment.ProcessorCount;
         public static double GoldenRatio = (1 + Math.Sqrt(5)) / 2;
 
         public static void LoadPrimes(int max)
         {
             Primes = GeneratePrimes(max);
+        }
+
+        public static void LoadPrimesSmall(int max)
+        {
+            PrimesInt = GeneratePrimes(max).ConvertAll(x => (int)x);
         }
 
         public static int SumRange(int low, int high)
@@ -27,6 +33,26 @@ namespace ProjectEulerProblems
         public static long ModularExponent(long b, long e, long m)
         {
             long b1 = 1;
+            while(e > 1)
+            {
+                if(e % 2 == 0)
+                {
+                    b = (b * b) % m;
+                    e /= 2;
+                }
+                else
+                {
+                    b1 = (b1 * b) % m;
+                    b = (b * b) % m;
+                    e = (e - 1) / 2;
+                }
+            }
+            return (b * b1) % m;
+        }
+
+        public static int ModularExponent(int b, int e, int m)
+        {
+            int b1 = 1;
             while(e > 1)
             {
                 if(e % 2 == 0)
@@ -622,6 +648,32 @@ namespace ProjectEulerProblems
                         result[Primes[i]] = 1;
                     }
                     n /= Primes[i];
+                    i -= 1;
+                }
+            }
+            return result;
+        }
+
+        public static Dictionary<int, int> PrimeFactorsWithCount(int n)
+        {
+            Dictionary<int, int> result = new Dictionary<int, int>();
+            for(int i = 0; i < PrimesInt.Count; i++)
+            {
+                if(PrimesInt[i] > n)
+                {
+                    break;
+                }
+                if(n % PrimesInt[i] == 0)
+                {
+                    if(result.ContainsKey(PrimesInt[i]))
+                    {
+                        result[PrimesInt[i]]++;
+                    }
+                    else
+                    {
+                        result[PrimesInt[i]] = 1;
+                    }
+                    n /= PrimesInt[i];
                     i -= 1;
                 }
             }

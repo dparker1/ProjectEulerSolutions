@@ -220,6 +220,7 @@
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem583.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem587.cs" />
+    <Compile Include="Problems601_700\Problems601_610\Problem607.cs" />
     <Compile Include="Problems601_700\Problems611_620\Problem613.cs" />
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
     <Compile Include="Problems601_700\Problems641_650\Problem650.cs" />

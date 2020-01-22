@@ -216,6 +216,7 @@
     <Compile Include="Problems301_400\Problems391_400\Problem395.cs" />
     <Compile Include="Problems401_500\Problems441_450\Problem449.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
+    <Compile Include="Problems401_500\Problems491_500\Problem500.cs" />
     <Compile Include="Problems501_600\Problems521_530\Problem525.cs" />
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem583.cs" />
@@ -224,6 +225,7 @@
     <Compile Include="Problems601_700\Problems611_620\Problem613.cs" />
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
     <Compile Include="Problems601_700\Problems641_650\Problem650.cs" />
+    <Compile Include="Problems601_700\Problems681_690\Problem684.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

@@ -12,7 +12,7 @@ namespace ProjectEulerProblems
     {
         public static long Solve()
         {
-            List<long> primes = EulerUtilities.GeneratePrimes(10000000);
+            List<long> primes = EulerUtilities.GeneratePrimes(7500000);
             SortedSet<long> sorted = new SortedSet<long>();
             for(int i = 0; i < 500500; i++)
             {

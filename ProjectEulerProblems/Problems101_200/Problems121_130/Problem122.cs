@@ -19,58 +19,58 @@ namespace ProjectEulerProblems
         8: 3
         9: 4
         10: 4
+        11: 5
+        12: 4
+        13: 5
         */
+        public static Dictionary<int, int> p = new Dictionary<int, int>();
+        public static List<List<int>> lvl = new List<List<int>>();
+
+
         public static int Solve()
         {
-            for(int i = 2; i < 30; i++)
+            p.Add(1, 0);
+            List<int> temp = new List<int>();
+            temp.Add(1);
+            lvl.Add(temp);
+
+            int sum = 5;
+            for(int i = 5; i <= 200; i++)
             {
-                Console.WriteLine(i + ": " + EfficientCount(i));
+                List<int> z = Path(i);
+                sum += z.Count - 1;
             }
-            return 0;
+            return sum - 2;
         }
 
-        static int EfficientCount(int k)
+        public static List<int> Path(int n)
         {
-            return EfficientCount(k, 1, 0, int.MaxValue, new List<int>(new int[] { 1 }));
-        }
-
-        static int EfficientCount(double k, double n, int count, int minCountSoFar, List<int> path)
-        {
-            if(count >= minCountSoFar)
+            if(n == 0)
             {
-                return minCountSoFar;
+                return new List<int>();
             }
-            if(k < n)
+            
+            while(!p.ContainsKey(n))
             {
-                return minCountSoFar;
-            }
-            if(k == n)
-            {
-                return count;
-            }
-            if(k <= 2)
-            {
-                return (int)k - 1;
-            }
-            double div = k / n;
-            if(div == 2.0)
-            {
-                return count + 1;
-            }
-            int minCount = minCountSoFar;
-            int x;
-            for(int i = 0; i < path.Count; i++)
-            {
-                if(n + path[i] > k)
+                List<int> q = new List<int>();
+                foreach(int x in lvl[0])
                 {
-                    break;
+                    foreach(int y in Path(x))
+                    {
+                        int z = x + y;
+                        if(!p.ContainsKey(z))
+                        {
+                            p.Add(z, x);
+                            q.Add(z);
+                        }
+                    }
                 }
-                List<int> newPath = new List<int>(path);
-                newPath.Add((int)n + path[i]);
-                x = EfficientCount(k, n + path[i], count + 1, minCountSoFar, newPath);
-                minCount = Math.Min(x, minCount);
+                lvl[0].Clear();
+                lvl[0].AddRange(q);
             }
-            return minCount;
+            List<int> t = Path(p[n]);
+            t.Add(n);
+            return t;
         }
     }
 }

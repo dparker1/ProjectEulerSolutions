@@ -228,6 +228,7 @@
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
     <Compile Include="Problems601_700\Problems641_650\Problem650.cs" />
     <Compile Include="Problems601_700\Problems681_690\Problem684.cs" />
+    <Compile Include="Problems601_700\Problems681_690\Problem686.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>

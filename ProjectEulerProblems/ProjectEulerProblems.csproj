@@ -219,6 +219,7 @@
     <Compile Include="Problems401_500\Problems461_470\Problem461.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem500.cs" />
+    <Compile Include="Problems501_600\Problems521_530\Problem523.cs" />
     <Compile Include="Problems501_600\Problems521_530\Problem525.cs" />
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem583.cs" />

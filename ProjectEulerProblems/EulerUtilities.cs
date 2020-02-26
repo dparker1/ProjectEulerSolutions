@@ -739,6 +739,20 @@ namespace ProjectEulerProblems
             return result;
         }
 
+        public static List<long> FibonacciLimit(int n)
+        {
+            List<long> result = new List<long>();
+            result.Add(1);
+            result.Add(1);
+            int count = 2;
+            while(count < n)
+            {
+                result.Add(result[count - 1] + result[count - 2]);
+                count++;
+            }
+            return result;
+        }
+
         public static List<long> Fibonacci(long n)
         {
             List<long> result = new List<long>();

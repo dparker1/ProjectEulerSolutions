@@ -164,6 +164,7 @@
     <Compile Include="Problems001_100\Problems081_090\Problem087.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem088.cs" />
     <Compile Include="Problems001_100\Problems081_090\Problem089.cs" />
+    <Compile Include="Problems001_100\Problems081_090\Problem090.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem091.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem092.cs" />
     <Compile Include="Problems001_100\Problems091_100\Problem093.cs" />

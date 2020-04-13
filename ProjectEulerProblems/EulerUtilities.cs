@@ -780,6 +780,33 @@ namespace ProjectEulerProblems
             return result;
         }
 
+        public static int TotientCount(int n)
+        {
+            int result = n;
+            int r = n;
+            foreach(int p in PrimesInt)
+            {
+                if(p * p > r)
+                {
+                    break;
+                }
+                if(r % p != 0)
+                {
+                    continue;
+                }
+                do
+                {
+                    r /= p;
+                } while(r % p == 0);
+                result -= result / p;
+            }
+            if(r > 1)
+            {
+                result -= result / r;
+            }
+            return result;
+        }
+
         public static long TotientCount(long n)
         {
             long result = n;

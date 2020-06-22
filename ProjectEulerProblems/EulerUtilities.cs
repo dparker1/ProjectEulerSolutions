@@ -33,7 +33,7 @@ namespace ProjectEulerProblems
         public static long ModularExponent(long b, long e, long m)
         {
             long b1 = 1;
-            while(e > 1)
+            while(e >= 1)
             {
                 if(e % 2 == 0)
                 {
@@ -47,7 +47,7 @@ namespace ProjectEulerProblems
                     e = (e - 1) / 2;
                 }
             }
-            return (b * b1) % m;
+            return b1;
         }
 
         public static int ModularExponent(int b, int e, int m)
@@ -271,6 +271,22 @@ namespace ProjectEulerProblems
                 powers[j] = powers[j + 1] / divisor;
             }
             return (Array.BinarySearch(powers, num) >= 0);
+        }
+
+        public static long[,] MMultSquare(long[,] x, long[,] y, int n)
+        {
+            long[,] result = new long[n, n];
+            Parallel.For(0, n, (i) =>
+            {
+                for(int j = 0; j < n; j++)
+                {
+                    for(int k = 0; k < n; k++)
+                    {
+                        result[i, j] += x[i, k] * y[k, j];
+                    }
+                }
+            });
+            return result;
         }
 
         public static long[] GetBinomialCoefficients(int row)

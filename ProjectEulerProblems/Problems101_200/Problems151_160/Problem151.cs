@@ -117,7 +117,7 @@ namespace ProjectEulerProblems
             {
                 for(int j = 0; j < n; j++)
                 {
-                    for(int k =0; k < n; k++)
+                    for(int k = 0; k < n; k++)
                     {
                         result[i, j] += x[i, k] * y[k, j];
                     }

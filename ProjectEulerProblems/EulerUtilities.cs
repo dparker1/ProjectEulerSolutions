@@ -70,6 +70,43 @@ namespace ProjectEulerProblems
             return (b * b1) % m;
         }
 
+        public static List<int> GeneratePrimesSmall(int limit)
+        {
+            int[] primes = new int[limit];
+            BitArray primeBits = new BitArray(limit, false);
+            List<int> returned = new List<int>();
+
+            primeBits[2] = true;
+            for(int i = 3; i < limit; i += 2)
+            {
+                primeBits[i] = true;
+            }
+
+            for(int i = 0; i < limit; i++)
+            {
+                primes[i] = i;
+            }
+            for(int i = 2; i <= Math.Sqrt(limit); i++)
+            {
+                if(primeBits[i])
+                {
+                    for(int j = 2; i * j < limit; j++)
+                    {
+                        primeBits[i * j] = false;
+                    }
+                }
+            }
+            for(int i = 2; i < limit; i++)
+            {
+                if(primeBits[i])
+                {
+                    returned.Add(primes[i]);
+                }
+            }
+
+            return returned;
+        }
+
         public static List<long> GeneratePrimes(int limit)
         {
             long[] primes = new long[limit];

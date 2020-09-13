@@ -12,7 +12,7 @@ namespace ProjectEulerProblems
     {
         public static List<long> Primes;
         public static List<int> PrimesInt;
-        public static int processors= Environment.ProcessorCount;
+        public static int Processors = Environment.ProcessorCount;
         public static double GoldenRatio = (1 + Math.Sqrt(5)) / 2;
 
         public static void LoadPrimes(int max)
@@ -22,7 +22,7 @@ namespace ProjectEulerProblems
 
         public static void LoadPrimesSmall(int max)
         {
-            PrimesInt = GeneratePrimes(max).ConvertAll(x => (int)x);
+            PrimesInt = GeneratePrimesSmall(max);
         }
 
         public static int SumRange(int low, int high)
@@ -577,6 +577,45 @@ namespace ProjectEulerProblems
             return GreatestCommonDivisor(b, a % b);
         }
 
+        public static long GreatestCommonDivisorBinary(long a, long b)
+        {
+            int d = 0;
+            while(a != b)
+            {
+                bool aEven = a % 2 == 0;
+                bool bEven = b % 2 == 0;
+                if(aEven && bEven)
+                {
+                    d++;
+                    a >>= 1;
+                    b >>= 1;
+                }
+                else if(aEven && !bEven)
+                {
+                    a >>= 1;
+                }
+                else if(!aEven && bEven)
+                {
+                    b >>= 1;
+                }
+                else
+                {
+                    if(a < b)
+                    {
+                        long t = a;
+                        a = b;
+                        b = t;
+                    }
+                    a -= b;
+                }
+                if(b == 0)
+                {
+                    break;
+                }
+            }
+            return a << d;
+        }
+
         public static int LeastCommonMultiple(int a, int b)
         {
             return (a * b) / GreatestCommonDivisor(a, b);
@@ -601,7 +640,7 @@ namespace ProjectEulerProblems
 
         public static BigInteger BigFactorial(long n)
         {
-            Task<BigInteger>[] tasks = Enumerable.Range(1, processors).Select(x => Task.Factory.StartNew(
+            Task<BigInteger>[] tasks = Enumerable.Range(1, Processors).Select(x => Task.Factory.StartNew(
                                         () => Multiply(x, n), TaskCreationOptions.LongRunning)).ToArray();
             Task.WaitAll(tasks);
             BigInteger result = 1;
@@ -616,7 +655,7 @@ namespace ProjectEulerProblems
         private static BigInteger Multiply(int lower, long upper)
         {
             BigInteger result = 1;
-            for(int i = lower; i <= upper; i += processors)
+            for(int i = lower; i <= upper; i += Processors)
             {
                 result *= i;
             }

@@ -41,8 +41,34 @@
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>1</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Solver.Foundation">
+      <HintPath>..\packages\Microsoft.Solver.Foundation.3.1.0\lib\Microsoft.Solver.Foundation.dll</HintPath>
+    </Reference>
     <Reference Include="NMath">
       <HintPath>..\packages\CenterSpace.NMath.6.2.0.58\lib\net40\NMath.dll</HintPath>
     </Reference>
@@ -183,6 +209,7 @@
     <Compile Include="Problems101_200\Problems141_150\Problem144.cs" />
     <Compile Include="Problems101_200\Problems141_150\Problem145.cs" />
     <Compile Include="Problems101_200\Problems151_160\Problem151.cs" />
+    <Compile Include="Problems101_200\Problems161_170\Problem166.cs" />
     <Compile Include="Problems101_200\Problems171_180\Problem179.cs" />
     <Compile Include="Problems101_200\Problems181_190\Problem183.cs" />
     <Compile Include="Problems101_200\Problems181_190\Problem188.cs" />
@@ -214,6 +241,7 @@
     <Compile Include="Problems301_400\Problems381_390\Problem389.cs" />
     <Compile Include="Problems301_400\Problems391_400\Problem392.cs" />
     <Compile Include="Problems301_400\Problems391_400\Problem395.cs" />
+    <Compile Include="Problems401_500\Problems441_450\Problem443.cs" />
     <Compile Include="Problems401_500\Problems441_450\Problem449.cs" />
     <Compile Include="Problems401_500\Problems461_470\Problem461.cs" />
     <Compile Include="Problems401_500\Problems491_500\Problem493.cs" />
@@ -226,6 +254,8 @@
     <Compile Include="Problems601_700\Problems601_610\Problem607.cs" />
     <Compile Include="Problems601_700\Problems611_620\Problem613.cs" />
     <Compile Include="Problems601_700\Problems621_630\Problem622.cs" />
+    <Compile Include="Problems601_700\Problems631_640\Problem634.cs" />
+    <Compile Include="Problems601_700\Problems641_650\Problem641.cs" />
     <Compile Include="Problems601_700\Problems641_650\Problem650.cs" />
     <Compile Include="Problems601_700\Problems681_690\Problem684.cs" />
     <Compile Include="Problems601_700\Problems681_690\Problem686.cs" />

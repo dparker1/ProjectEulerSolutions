@@ -29,18 +29,18 @@ namespace ProjectEulerProblems.Mathematics
         #endregion
 
         #region Instance fields
-        private readonly BigInteger numerator, denominator;
+        private readonly int numerator, denominator;
         private readonly bool explicitConstructorCalled, isDefinitelyIrreducible;
         #endregion
 
         #region Constructors
         [DebuggerStepThrough]
-        public Rational(BigInteger numerator)
+        public Rational(int numerator)
             : this(numerator, 1, true)
         { }
 
         [DebuggerStepThrough]
-        public Rational(BigInteger numerator, BigInteger denominator)
+        public Rational(int numerator, int denominator)
             : this(numerator, denominator, false)
         { }
 
@@ -49,7 +49,7 @@ namespace ProjectEulerProblems.Mathematics
             : this(numerator.numerator * denominator.Denominator, numerator.Denominator * denominator.numerator, false)
         { }
 
-        private Rational(BigInteger numerator, BigInteger denominator, bool isIrreducible)
+        private Rational(int numerator, int denominator, bool isIrreducible)
         {
             if(denominator < 0) //normalize to positive denominator
             {
@@ -68,7 +68,7 @@ namespace ProjectEulerProblems.Mathematics
         #endregion
 
         #region Instance properties
-        public BigInteger Denominator { get { return explicitConstructorCalled ? denominator : 1; } } //We want default value to be zero, not NaN.
+        public int Denominator { get { return explicitConstructorCalled ? denominator : 1; } } //We want default value to be zero, not NaN.
 
         public Rational FractionalPart
         {
@@ -79,7 +79,7 @@ namespace ProjectEulerProblems.Mathematics
                     if(IsProper(this))
                         return new Rational(numerator % Denominator, Denominator);
 
-                    return new Rational(BigInteger.Abs(numerator % Denominator), Denominator);
+                    return new Rational(Math.Abs(numerator % Denominator), Denominator);
                 }
 
                 if(numerator == 0)
@@ -97,7 +97,7 @@ namespace ProjectEulerProblems.Mathematics
             get
             {
                 if(Denominator != 0)
-                    return (BigInteger)this;
+                    return (int)this;
 
                 if(numerator == 0)
                     return NaN;
@@ -109,9 +109,9 @@ namespace ProjectEulerProblems.Mathematics
             }
         }
 
-        public BigInteger Numerator { get { return numerator; } }
+        public int Numerator { get { return numerator; } }
 
-        public Rational Sign { get { return numerator.Sign; } }
+        public Rational Sign { get { return numerator > 0 ? 1 : 0; } }
         #endregion
 
         #region Instance methods
@@ -227,7 +227,7 @@ namespace ProjectEulerProblems.Mathematics
 
             if(rationalNumber.Denominator == 1 ||
                 (rationalNumber.Denominator == 0 && (rationalNumber.numerator == 1 || rationalNumber.numerator == -1 || rationalNumber.numerator == 0)) ||
-                rationalNumber.numerator.GreatestCommonDivisor(rationalNumber.Denominator) == 1)
+                EulerUtilities.GreatestCommonDivisor(rationalNumber.numerator, rationalNumber.denominator) == 1)
                 return true;
 
             return false;
@@ -241,7 +241,7 @@ namespace ProjectEulerProblems.Mathematics
 
         public static bool IsProper(Rational rationalNumber)
         {
-            return BigInteger.Abs(rationalNumber.IntegerPart.numerator) < 1;
+            return Math.Abs(rationalNumber.IntegerPart.numerator) < 1;
         }
 
         public static bool IsNaN(Rational rationalNumber)
@@ -259,7 +259,7 @@ namespace ProjectEulerProblems.Mathematics
         #region Static methods
         public static Rational Abs(Rational number)
         {
-            return new Rational(BigInteger.Abs(number.numerator), number.Denominator);
+            return new Rational(Math.Abs(number.numerator), number.Denominator);
         }
 
         public static Rational Add(Rational left, Rational right, bool reduceOutput = false)
@@ -314,7 +314,7 @@ namespace ProjectEulerProblems.Mathematics
             if(rationalNumber.isDefinitelyIrreducible)
                 return rationalNumber;
 
-            var greatesCommonDivisor = rationalNumber.numerator.GreatestCommonDivisor(rationalNumber.Denominator);
+            var greatesCommonDivisor = EulerUtilities.GreatestCommonDivisor(rationalNumber.numerator, rationalNumber.denominator);
             return new Rational(rationalNumber.numerator / greatesCommonDivisor, rationalNumber.Denominator / greatesCommonDivisor, true);
         }
 
@@ -351,7 +351,7 @@ namespace ProjectEulerProblems.Mathematics
 
             if(n > 0)
             {
-                var result = new Rational(BigInteger.Pow(r.numerator, n), BigInteger.Pow(r.Denominator, n), false);
+                var result = new Rational((int)Math.Pow(r.numerator, n), (int)Math.Pow(r.Denominator, n), false);
                 return reduceOutput ? Rational.GetReducedForm(result) : result;
             }
 
@@ -406,7 +406,7 @@ namespace ProjectEulerProblems.Mathematics
 
         private static Rational getNearestRationalNumber(double number, int currentStep, int maximumSteps)
         {
-            var integerPart = (BigInteger)number;
+            var integerPart = (int)number;
             double fractionalPart = number - Math.Truncate(number);
 
             if(currentStep < maximumSteps && fractionalPart != 0)
@@ -419,11 +419,11 @@ namespace ProjectEulerProblems.Mathematics
         #region Operators
         public static explicit operator double(Rational rationalNumber) { return Rational.ToDouble(rationalNumber); }
 
-        public static implicit operator Rational(BigInteger number) { return new Rational(number); }
+        public static implicit operator Rational(int number) { return new Rational(number); }
 
-        public static implicit operator Rational(long number) { return new Rational(number); }
+        public static implicit operator Rational(long number) { return new Rational((int)number); }
 
-        public static explicit operator BigInteger(Rational rationalNumber) { return rationalNumber.numerator / rationalNumber.Denominator; }
+        public static explicit operator int(Rational rationalNumber) { return rationalNumber.numerator / rationalNumber.Denominator; }
 
         public static bool operator ==(Rational left, Rational right) { return left.Equals(right); }
 
@@ -518,7 +518,7 @@ namespace ProjectEulerProblems.Mathematics
                     {
                         var fractionalPart = rational.FractionalPart;
                         return string.Format("{0} [{1}/{2}]", integerPart.ToString(innerFormat, formatProvider),
-                            BigInteger.Abs(fractionalPart.numerator).ToString(innerFormat, formatProvider), fractionalPart.Denominator.ToString(innerFormat, formatProvider));
+                            Math.Abs(fractionalPart.numerator).ToString(innerFormat, formatProvider), fractionalPart.Denominator.ToString(innerFormat, formatProvider));
                     }
                 }
 

@@ -86,6 +86,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="EulerUtilities.cs" />
     <Compile Include="Mathematics\BigDecimal.cs" />
+    <Compile Include="Mathematics\BigRational.cs" />
     <Compile Include="Mathematics\Rational.cs" />
     <Compile Include="Mathematics\Tools.cs" />
     <Compile Include="Problems001_100\Problems001_010\Problem001.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Problems101_200\Problems141_150\Problem144.cs" />
     <Compile Include="Problems101_200\Problems141_150\Problem145.cs" />
     <Compile Include="Problems101_200\Problems151_160\Problem151.cs" />
+    <Compile Include="Problems101_200\Problems151_160\Problem152.cs" />
     <Compile Include="Problems101_200\Problems161_170\Problem166.cs" />
     <Compile Include="Problems101_200\Problems171_180\Problem179.cs" />
     <Compile Include="Problems101_200\Problems181_190\Problem183.cs" />
@@ -218,6 +220,7 @@
     <Compile Include="Problems201_300\Problems201_210\Problem205.cs" />
     <Compile Include="Problems201_300\Problems201_210\Problem203.cs" />
     <Compile Include="Problems201_300\Problems201_210\Problem206.cs" />
+    <Compile Include="Problems201_300\Problems211_220\Problem216.cs" />
     <Compile Include="Problems201_300\Problems221_230\Problem230.cs" />
     <Compile Include="Problems201_300\Problems231_240\Problem235.cs" />
     <Compile Include="Problems201_300\Problems241_250\Problem243.cs" />
@@ -249,6 +252,7 @@
     <Compile Include="Problems501_600\Problems521_530\Problem523.cs" />
     <Compile Include="Problems501_600\Problems521_530\Problem525.cs" />
     <Compile Include="Problems501_600\Problems541_550\Problem549.cs" />
+    <Compile Include="Problems501_600\Problems561_570\Problem569.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem583.cs" />
     <Compile Include="Problems501_600\Problems581_590\Problem587.cs" />
     <Compile Include="Problems601_700\Problems601_610\Problem607.cs" />
@@ -302,7 +306,6 @@
     <Content Include="txt\Problem345Text.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Problems201_300\Problems211_220\" />
     <Folder Include="Problems201_300\Problems251_260\" />
     <Folder Include="Problems301_400\Problems371_380\" />
     <Folder Include="Problems401_500\Problems401_410\" />

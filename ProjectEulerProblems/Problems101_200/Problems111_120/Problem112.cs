@@ -11,18 +11,18 @@ namespace ProjectEulerProblems
     {
         public static int Solve()
         {
-            Rational proportion = new Rational(0, 100);
-            Rational limit = new Rational(99, 100);
+            BigRational proportion = new BigRational(0, 100);
+            BigRational limit = new BigRational(99, 100);
             int number = 101;
             while(proportion < limit)
             {
                 if(IsBouncy(number))
                 {
-                    proportion = new Rational(proportion.Numerator + 1, proportion.Denominator + 1);
+                    proportion = new BigRational(proportion.Numerator + 1, proportion.Denominator + 1);
                 }
                 else
                 {
-                    proportion = new Rational(proportion.Numerator, proportion.Denominator + 1);
+                    proportion = new BigRational(proportion.Numerator, proportion.Denominator + 1);
                 }
                 number++;
             }

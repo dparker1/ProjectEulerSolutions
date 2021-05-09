@@ -226,6 +226,7 @@
     <Compile Include="Problems201_300\Problems231_240\Problem235.cs" />
     <Compile Include="Problems201_300\Problems241_250\Problem243.cs" />
     <Compile Include="Problems201_300\Problems261_270\Problem267.cs" />
+    <Compile Include="Problems201_300\Problems281_290\Problem285.cs" />
     <Compile Include="Problems201_300\Problems281_290\Problem286.cs" />
     <Compile Include="Problems201_300\Problems281_290\Problem287.cs" />
     <Compile Include="Problems201_300\Problems291_300\Problem291.cs" />

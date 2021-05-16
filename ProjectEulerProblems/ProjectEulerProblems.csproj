@@ -65,6 +65,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.4.15.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Solver.Foundation">
       <HintPath>..\packages\Microsoft.Solver.Foundation.3.1.0\lib\Microsoft.Solver.Foundation.dll</HintPath>
@@ -268,6 +271,7 @@
     <Compile Include="Problems601_700\Problems681_690\Problem684.cs" />
     <Compile Include="Problems601_700\Problems681_690\Problem686.cs" />
     <Compile Include="Problems601_700\Problems681_690\Problem689.cs" />
+    <Compile Include="Problems601_700\Problems691_700\Problem697.cs" />
     <Compile Include="Problems601_700\Problems691_700\Problem700.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
